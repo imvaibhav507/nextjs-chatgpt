@@ -1,4 +1,5 @@
 "use client";
+import Loading from "@/components/auth/Logo";
 import {
   ClerkProvider,
   SignInButton,
@@ -36,17 +37,14 @@ export const ConvexClientProvider = ({
   return (
     <ClerkProvider
       publishableKey={publishableKey}
-      signUpFallbackRedirectUrl="sign-in"
+      signUpFallbackRedirectUrl="/signup"
     >
       <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
-        <Authenticated>
-          <UserButton />
-          {children}
-        </Authenticated>
-        <Unauthenticated>
-          <SignInButton />
-          {children}
-        </Unauthenticated>
+        <AuthLoading>
+          <Loading />
+        </AuthLoading>
+        <Authenticated>{children}</Authenticated>
+        <Unauthenticated>{children}</Unauthenticated>
       </ConvexProviderWithClerk>
     </ClerkProvider>
   );
