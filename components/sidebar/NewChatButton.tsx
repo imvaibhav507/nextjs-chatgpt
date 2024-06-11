@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { PlusCircle, SquarePen } from "lucide-react";
 import { api } from "@/convex/_generated/api";
 import { useMutation } from "convex/react";
@@ -8,7 +8,7 @@ function NewChatButton() {
   const create = useMutation(api.chats.create);
 
   const handleCreateChat = () => {
-    create({});
+    create();
   };
   return (
     <Button
