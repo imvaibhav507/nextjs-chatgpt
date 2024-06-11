@@ -12,7 +12,7 @@ function NewChatButton() {
   };
   return (
     <Button
-      className="w-full items-center justify-between px-4 hover:bg-slate-800"
+      className="w-full justify-between items-center px-5 hover:bg-slate-800"
       onClick={handleCreateChat}
     >
       <PlusCircle />

@@ -4,6 +4,7 @@ import { Id } from "@/convex/_generated/dataModel";
 import { useQuery } from "convex/react";
 import { useParams } from "next/navigation";
 import React from "react";
+import ChatListItem from "./ChatListItem";
 
 function ChatList() {
   const chats = useQuery(api.chats.list);
@@ -17,10 +18,11 @@ function ChatList() {
   return (
     <div>
       {chats.map((chat) => (
-        <div key={chat._id} className="text-white">
-          {" "}
-          {chat.title}
-        </div>
+        <ChatListItem
+          key={chat._id}
+          chat={chat}
+          isSelected={chatId === chat._id}
+        />
       ))}
     </div>
   );
