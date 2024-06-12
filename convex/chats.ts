@@ -55,6 +55,14 @@ export const list = query({
   },
 });
 
+export const get = query({
+  args: { id: v.id("chats") },
+  handler: async (ctx, args) => {
+    const chat = await ctx.db.get(args.id);
+    return chat;
+  },
+});
+
 export const rename = mutation({
   args: { id: v.id("chats"), title: v.string() },
   handler: async (ctx, args) => {
