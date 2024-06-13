@@ -9,9 +9,9 @@ interface MessageBoxProps {
 }
 function MessageBox({ chatId }: MessageBoxProps) {
   const chat = useQuery(api.chats.get, { id: chatId });
-  const sendMessage = useAction(api.messages.send);
+  const sendMessage = useAction(api.messages.submit);
 
-  const { message, setMessage } = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
   if (chat == undefined || !chat) {
     return <div>Chat not found !</div>;
@@ -29,7 +29,7 @@ function MessageBox({ chatId }: MessageBoxProps) {
     });
   };
   const handleClickDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key == "enter") {
+    if (e.key == "Enter") {
       e.preventDefault();
       handleSendMessage();
     }
@@ -45,6 +45,7 @@ function MessageBox({ chatId }: MessageBoxProps) {
       text-neutral-200 placeholder:text-neutral-400 h-12"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
+        onKeyDown={handleClickDown}
       />
     </div>
   );

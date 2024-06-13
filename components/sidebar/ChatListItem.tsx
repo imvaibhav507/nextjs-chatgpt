@@ -23,8 +23,8 @@ function ChatListItem({ chat, isSelected }: ChatListItemProps) {
   const rename = useMutation(api.chats.rename);
   const remove = useMutation(api.chats.remove);
 
-  const { isEditing, setIsEditing } = useState(false);
-  const { title, setTitle } = useState(chat.title);
+  const [isEditing, setIsEditing] = useState(false);
+  const [title, setTitle] = useState(chat.title);
 
   const router = useRouter();
 
