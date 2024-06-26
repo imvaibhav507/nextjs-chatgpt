@@ -35,17 +35,17 @@ function ChatListItem({ chat, isSelected }: ChatListItemProps) {
   };
 
   const handleRename = () => {
-    // rename({ id: chat._id, title: title });
+    rename({ id: chat._id, title: title });
     setIsEditing(false);
   };
 
   const handleRemove = () => {
-    // remove({ id: chat._id });
+    remove({ id: chat._id });
     router.push("/");
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "enter") {
+    if (e.key === "Enter") {
       handleRename();
     }
   };
@@ -64,6 +64,7 @@ function ChatListItem({ chat, isSelected }: ChatListItemProps) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           autoFocus
+          onKeyDown={handleKeyDown}
           className="outline-none bg-transparent w-[170px]"
         />
       ) : (
@@ -77,7 +78,7 @@ function ChatListItem({ chat, isSelected }: ChatListItemProps) {
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <button
-              onClick={handleRename}
+              onClick={() => setIsEditing(true)}
               className="flex flex-row w-full justify-evenly text-sm"
             >
               <Pencil className="size-4" />

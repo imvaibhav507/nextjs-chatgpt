@@ -36,7 +36,7 @@ function MessageBox({ chatId }: MessageBoxProps) {
   };
   return (
     <div
-      className="relative sm:px-12 md:px-52 lg:px-[500px] 2xl:px-96
+      className="relative sm:px-40 md:px-52 lg:px-80 2xl:px-96
   w-full mx-auto"
     >
       <Input

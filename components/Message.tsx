@@ -8,7 +8,7 @@ interface MessageProps {
   profileUrl: string | null;
 }
 function Message({ message, profileUrl }: MessageProps) {
-  const sender = message.role === "user" ? "You" : "ChatGPT";
+  const sender = message.role === "user" ? "You" : "Vortex";
   const avatar = message.role === "user" ? profileUrl : "/logo.svg";
   return (
     <div
@@ -23,7 +23,7 @@ function Message({ message, profileUrl }: MessageProps) {
       </Avatar>
       <div className="max-w-[cal(80%)]">
         <h3 className="font-bold">{sender}</h3>
-        <div>
+        <div className="text-white">
           <CustomMarkdown content={message.content} />
         </div>
       </div>

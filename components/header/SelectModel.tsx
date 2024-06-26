@@ -59,7 +59,7 @@ function SelectModel() {
           onClick={toggleOpen}
           className="flex space-x-2 font-semibold items-center align-baseline text-white"
         >
-          <p className="h-5">ChatGPT</p>
+          <p className="h-5">Vortex</p>
           <p className="text-white/70 w-5 h-5">{gptVersion}</p>
           <ChevronDown className="text-white/70" />
         </PopoverTrigger>

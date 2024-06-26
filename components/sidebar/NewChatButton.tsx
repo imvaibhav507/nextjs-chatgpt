@@ -4,11 +4,13 @@ import { Button } from "../ui/button";
 import { PlusCircle, SquarePen } from "lucide-react";
 import { api } from "@/convex/_generated/api";
 import { useMutation } from "convex/react";
+import { useRouter } from "next/navigation";
 function NewChatButton() {
   const create = useMutation(api.chats.create);
-
-  const handleCreateChat = () => {
-    create();
+  const router = useRouter();
+  const handleCreateChat = async () => {
+    const chatId = await create();
+    router.push(`/chat/${chatId}`);
   };
   return (
     <Button
