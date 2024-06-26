@@ -19,15 +19,15 @@ interface UpgradeModelProps {
 }
 
 export const UpgradeModel = ({ open, setOpen }: UpgradeModelProps) => {
-  const upgrade = useAction(api.stripe.pay);
+  // const upgrade = useAction(api.stripe.pay);
   const router = useRouter();
 
-  const handleUpgrade = async () => {
-    const url = await upgrade({});
+  // const handleUpgrade = async () => {
+  //   const url = await upgrade({});
 
-    if (!url) return;
-    router.push(url);
-  };
+  //   if (!url) return;
+  //   router.push(url);
+  // };
 
   return (
     <Dialog open={open} onOpenChange={(e) => setOpen(e)}>
@@ -73,7 +73,7 @@ export const UpgradeModel = ({ open, setOpen }: UpgradeModelProps) => {
             <p className="font-thin text-white/95"> USD $20/month</p>
             <Button
               className="font-semibold text-xs bg-green-600 hover:bg-green-700 p-4 my-4"
-              onClick={handleUpgrade}
+              // onClick={handleUpgrade}
             >
               Upgrade to plus
             </Button>
